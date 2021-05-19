@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>COVID 19 API in Javascript</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="test-center mt-5">COVID-19 Live Data in Table</h1>
+            <br><br>
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">State/UT</th>
+                    <th scope="col">Confirmed</th>
+                    <th scope="col">Deaths</th>
+                    <th scope="col">Recoveries</th>
+                    <th scope="col">Tested</th>
+                    <th scope="col">Vaccinated</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <tr id="data_AN">
+                </tr>
+                <tr id="data_AP">
+                </tr>
+                <tr id="data_AR">
+                </tr>
+                <tr id="data_AS">
+                </tr>
+                <tr id="data_BR">
+                </tr>
+                <tr id="data_CH">
+                </tr>
+                <tr id="data_CT">
+                </tr>
+                <tr id="data_DL">
+                </tr>
+                <tr id="data_DN">
+                </tr>
+                <tr id="data_GA">
+                </tr>
+                <tr id="data_GJ">
+                </tr>
+                <tr id="data_HP">
+                </tr>
+                <tr id="data_HR">
+                </tr>
+                <tr id="data_JH">
+                </tr>
+                <tr id="data_JK">
+                </tr>
+                <tr id="data_KA">
+                </tr>
+                <tr id="data_KL">
+                </tr>
+                <tr id="data_LA">
+                </tr>
+                <tr id="data_LD">
+                </tr>
+                <tr id="data_MH">
+                </tr>
+                <tr id="data_ML">
+                </tr>
+                <tr id="data_MN">
+                </tr>
+                <tr id="data_MP">
+                </tr>
+                <tr id="data_MZ">
+                </tr>
+                <tr id="data_NL">
+                </tr>
+                <tr id="data_OR">
+                </tr>
+                <tr id="data_PB">
+                </tr>
+                <tr id="data_PY">
+                </tr>
+                <tr id="data_RJ">
+                </tr>
+                <tr id="data_SK">
+                </tr>
+                <tr id="data_TG">
+                </tr>
+                <tr id="data_TN">
+                </tr>
+                <tr id="data_TR">
+                </tr>
+                <tr id="data_TT">
+                </tr>
+                <tr id="data_UP">
+                </tr>
+                <tr id="data_UT">
+                </tr>
+                <tr id="data_WB">
+                </tr>
+                </tbody>
+              </table>
+              <br>
+              <button onclick="refreshData()" class="btn btn-danger btn-block">
+                  Refresh Data
+              </button>
+        </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+
+            init()
+
+            function init(){
+                var url = "https://api.covid19india.org/v4/min/data.min.json"
+                var data
+                var data_AN = ''
+                var data_AP = ''
+                var data_AR = ''
+                var data_AS = ''
+                var data_BR = ''
+                var data_CH = ''
+                var data_CT = ''
+                var data_DL = ''
+                var data_DN = ''
+                var data_GA = ''
+                var data_GJ = ''
+                var data_HP = ''
+                var data_HR = ''
+                var data_JH = ''
+                var data_JK = ''
+                var data_KA = ''
+                var data_KL = ''
+                var data_LA = ''
+                var data_LD = ''
+                var data_MH = ''
+                var data_ML = ''
+                var data_MN = ''
+                var data_MP = ''
+                var data_MZ = ''
+                var data_NL = ''
+                var data_OR = ''
+                var data_PB = ''
+                var data_PY = ''
+                var data_RJ = ''
+                var data_SK = ''
+                var data_TG = ''
+                var data_TN = ''
+                var data_TR = ''
+                var data_TT = ''
+                var data_UP = ''
+                var data_UT = ''
+                var data_WB = ''
+                $.get(url,function(data){
+                   console.log(data)
+                   data_AN = `
+                   <td>Andaman and Nicobar Islands</td>
+                   <td>${data.AN.total.confirmed}</td>
+                   <td>${data.AN.total.deceased}</td>
+                   <td>${data.AN.total.recovered}</td>
+                   <td>${data.AN.total.tested}</td>
+                   <td>${data.AN.total.vaccinated}</td>
+                   `
+                   $("#data_AN").html(data_AN)
+
+                   data_AP = `
+                   <td>Andhra Pradesh</td>
+                   <td>${data.AP.total.confirmed}</td>
+                   <td>${data.AP.total.deceased}</td>
+                   <td>${data.AP.total.recovered}</td>
+                   <td>${data.AP.total.tested}</td>
+                   <td>${data.AP.total.vaccinated}</td>
+                   `
+                   $("#data_AP").html(data_AP)
+
+                   data_AR = `
+                   <td>Arunachal Pradesh</td>
+                   <td>${data.AR.total.confirmed}</td>
+                   <td>${data.AR.total.deceased}</td>
+                   <td>${data.AR.total.recovered}</td>
+                   <td>${data.AR.total.tested}</td>
+                   <td>${data.AR.total.vaccinated}</td>
+                   `
+                   $("#data_AR").html(data_AR)
+
+                   data_AS = `
+                   <td>Assam</td>
+                   <td>${data.AS.total.confirmed}</td>
+                   <td>${data.AS.total.deceased}</td>
+                   <td>${data.AS.total.recovered}</td>
+                   <td>${data.AS.total.tested}</td>
+                   <td>${data.AS.total.vaccinated}</td>
+                   `
+                   $("#data_AS").html(data_AS)
+
+                   data_BR = `
+                   <td>Bihar</td>
+                   <td>${data.BR.total.confirmed}</td>
+                   <td>${data.BR.total.deceased}</td>
+                   <td>${data.BR.total.recovered}</td>
+                   <td>${data.BR.total.tested}</td>
+                   <td>${data.BR.total.vaccinated}</td>
+                   `
+                   $("#data_BR").html(data_BR)
+
+                   data_CH = `
+                   <td>Chandigarh</td>
+                   <td>${data.CH.total.confirmed}</td>
+                   <td>${data.CH.total.deceased}</td>
+                   <td>${data.CH.total.recovered}</td>
+                   <td>${data.CH.total.tested}</td>
+                   <td>${data.CH.total.vaccinated}</td>
+                   `
+                   $("#data_CH").html(data_CH)
+
+                   data_CT = `
+                   <td>Chhattisgarh</td>
+                   <td>${data.CT.total.confirmed}</td>
+                   <td>${data.CT.total.deceased}</td>
+                   <td>${data.CT.total.recovered}</td>
+                   <td>${data.CT.total.tested}</td>
+                   <td>${data.CT.total.vaccinated}</td>
+                   `
+                   $("#data_CT").html(data_CT)
+
+                   data_DN = `
+                   <td>Daman and Diu</td>
+                   <td>${data.DN.total.confirmed}</td>
+                   <td>${data.DN.total.deceased}</td>
+                   <td>${data.DN.total.recovered}</td>
+                   <td>${data.DN.total.tested}</td>
+                   <td>${data.DN.total.vaccinated}</td>
+                   `
+                   $("#data_DN").html(data_DN)
+
+                   data_DL = `
+                   <td>Delhi</td>
+                   <td>${data.DL.total.confirmed}</td>
+                   <td>${data.DL.total.deceased}</td>
+                   <td>${data.DL.total.recovered}</td>
+                   <td>${data.DL.total.tested}</td>
+                   <td>${data.DL.total.vaccinated}</td>
+                   `
+                   $("#data_DL").html(data_DL)
+
+                   data_GA = `
+                   <td>Goa</td>
+                   <td>${data.GA.total.confirmed}</td>
+                   <td>${data.GA.total.deceased}</td>
+                   <td>${data.GA.total.recovered}</td>
+                   <td>${data.GA.total.tested}</td>
+                   <td>${data.GA.total.vaccinated}</td>
+                   `
+                   $("#data_GA").html(data_GA)
+
+                   data_GJ = `
+                   <td>Gujarat</td>
+                   <td>${data.GJ.total.confirmed}</td>
+                   <td>${data.GJ.total.deceased}</td>
+                   <td>${data.GJ.total.recovered}</td>
+                   <td>${data.GJ.total.tested}</td>
+                   <td>${data.GJ.total.vaccinated}</td>
+                   `
+                   $("#data_GJ").html(data_GJ)
+
+                   data_HR = `
+                   <td>Haryana</td>
+                   <td>${data.HR.total.confirmed}</td>
+                   <td>${data.HR.total.deceased}</td>
+                   <td>${data.HR.total.recovered}</td>
+                   <td>${data.HR.total.tested}</td>
+                   <td>${data.HR.total.vaccinated}</td>
+                   `
+                   $("#data_HR").html(data_HR)
+
+                   data_HP = `
+                   <td>Himachal Pradesh</td>
+                   <td>${data.HP.total.confirmed}</td>
+                   <td>${data.HP.total.deceased}</td>
+                   <td>${data.HP.total.recovered}</td>
+                   <td>${data.HP.total.tested}</td>
+                   <td>${data.HP.total.vaccinated}</td>
+                   `
+                   $("#data_HP").html(data_HP)
+
+                   data_JK = `
+                   <td>Jammu and Kashmir</td>
+                   <td>${data.JK.total.confirmed}</td>
+                   <td>${data.JK.total.deceased}</td>
+                   <td>${data.JK.total.recovered}</td>
+                   <td>${data.JK.total.tested}</td>
+                   <td>${data.JK.total.vaccinated}</td>
+                   `
+                   $("#data_JK").html(data_JK)
+
+                   data_JH = `
+                   <td>Jharkhand</td>
+                   <td>${data.JH.total.confirmed}</td>
+                   <td>${data.JH.total.deceased}</td>
+                   <td>${data.JH.total.recovered}</td>
+                   <td>${data.JH.total.tested}</td>
+                   <td>${data.JH.total.vaccinated}</td>
+                   `
+                   $("#data_JH").html(data_JH)
+
+                   data_KA = `
+                   <td>Karnataka</td>
+                   <td>${data.KA.total.confirmed}</td>
+                   <td>${data.KA.total.deceased}</td>
+                   <td>${data.KA.total.recovered}</td>
+                   <td>${data.KA.total.tested}</td>
+                   <td>${data.KA.total.vaccinated}</td>
+                   `
+                   $("#data_KA").html(data_KA)
+
+                   data_KL = `
+                   <td>Kerala</td>
+                   <td>${data.KL.total.confirmed}</td>
+                   <td>${data.KL.total.deceased}</td>
+                   <td>${data.KL.total.recovered}</td>
+                   <td>${data.KL.total.tested}</td>
+                   <td>${data.KL.total.vaccinated}</td>
+                   `
+                   $("#data_KL").html(data_KL)
+
+                   data_LA = `
+                   <td>Ladakh</td>
+                   <td>${data.LA.total.confirmed}</td>
+                   <td>${data.LA.total.deceased}</td>
+                   <td>${data.LA.total.recovered}</td>
+                   <td>${data.LA.total.tested}</td>
+                   <td>${data.LA.total.vaccinated}</td>
+                   `
+                   $("#data_LA").html(data_LA)
+
+                   data_LD = `
+                   <td>Lakshadweep</td>
+                   <td>${data.LD.total.confirmed}</td>
+                   <td>${data.LD.total.deceased}</td>
+                   <td>${data.LD.total.recovered}</td>
+                   <td>${data.LD.total.tested}</td>
+                   <td>${data.LD.total.vaccinated}</td>
+                   `
+                   $("#data_LD").html(data_LD)
+
+                   data_MP = `
+                   <td>Madhya Pradesh</td>
+                   <td>${data.MP.total.confirmed}</td>
+                   <td>${data.MP.total.deceased}</td>
+                   <td>${data.MP.total.recovered}</td>
+                   <td>${data.MP.total.tested}</td>
+                   <td>${data.MP.total.vaccinated}</td>
+                   `
+                   $("#data_MP").html(data_MP)
+
+                   data_MH = `
+                   <td>Maharashtra</td>
+                   <td>${data.MH.total.confirmed}</td>
+                   <td>${data.MH.total.deceased}</td>
+                   <td>${data.MH.total.recovered}</td>
+                   <td>${data.MH.total.tested}</td>
+                   <td>${data.MH.total.vaccinated}</td>
+                   `
+                   $("#data_MH").html(data_MH)
+
+                   data_MN = `
+                   <td>Manipur</td>
+                   <td>${data.MN.total.confirmed}</td>
+                   <td>${data.MN.total.deceased}</td>
+                   <td>${data.MN.total.recovered}</td>
+                   <td>${data.MN.total.tested}</td>
+                   <td>${data.MN.total.vaccinated}</td>
+                   `
+                   $("#data_MN").html(data_MN)
+
+                   data_ML = `
+                   <td>Meghalaya</td>
+                   <td>${data.ML.total.confirmed}</td>
+                   <td>${data.ML.total.deceased}</td>
+                   <td>${data.ML.total.recovered}</td>
+                   <td>${data.ML.total.tested}</td>
+                   <td>${data.ML.total.vaccinated}</td>
+                   `
+                   $("#data_ML").html(data_ML)
+
+                   data_MZ = `
+                   <td>Mizoram</td>
+                   <td>${data.MZ.total.confirmed}</td>
+                   <td>${data.MZ.total.deceased}</td>
+                   <td>${data.MZ.total.recovered}</td>
+                   <td>${data.MZ.total.tested}</td>
+                   <td>${data.MZ.total.vaccinated}</td>
+                   `
+                   $("#data_MZ").html(data_MZ)
+
+                   data_NL = `
+                   <td>Nagaland</td>
+                   <td>${data.NL.total.confirmed}</td>
+                   <td>${data.NL.total.deceased}</td>
+                   <td>${data.NL.total.recovered}</td>
+                   <td>${data.NL.total.tested}</td>
+                   <td>${data.NL.total.vaccinated}</td>
+                   `
+                   $("#data_NL").html(data_NL)
+
+                   data_OR = `
+                   <td>Odisha</td>
+                   <td>${data.OR.total.confirmed}</td>
+                   <td>${data.OR.total.deceased}</td>
+                   <td>${data.OR.total.recovered}</td>
+                   <td>${data.OR.total.tested}</td>
+                   <td>${data.OR.total.vaccinated}</td>
+                   `
+                   $("#data_OR").html(data_OR)
+
+                   data_PY = `
+                   <td>Puducherry</td>
+                   <td>${data.PY.total.confirmed}</td>
+                   <td>${data.PY.total.deceased}</td>
+                   <td>${data.PY.total.recovered}</td>
+                   <td>${data.PY.total.tested}</td>
+                   <td>${data.PY.total.vaccinated}</td>
+                   `
+                   $("#data_PY").html(data_PY)
+
+                   data_PB = `
+                   <td>Punjab</td>
+                   <td>${data.PB.total.confirmed}</td>
+                   <td>${data.PB.total.deceased}</td>
+                   <td>${data.PB.total.recovered}</td>
+                   <td>${data.PB.total.tested}</td>
+                   <td>${data.PB.total.vaccinated}</td>
+                   `
+                   $("#data_PB").html(data_PB)
+
+                   data_RJ = `
+                   <td>Rajasthan</td>
+                   <td>${data.RJ.total.confirmed}</td>
+                   <td>${data.RJ.total.deceased}</td>
+                   <td>${data.RJ.total.recovered}</td>
+                   <td>${data.RJ.total.tested}</td>
+                   <td>${data.RJ.total.vaccinated}</td>
+                   `
+                   $("#data_RJ").html(data_RJ)
+
+                   data_SK = `
+                   <td>Sikkim</td>
+                   <td>${data.SK.total.confirmed}</td>
+                   <td>${data.SK.total.deceased}</td>
+                   <td>${data.SK.total.recovered}</td>
+                   <td>${data.SK.total.tested}</td>
+                   <td>${data.SK.total.vaccinated}</td>
+                   `
+                   $("#data_SK").html(data_SK)
+
+                   data_TN = `
+                   <td>Tamil Nadu</td>
+                   <td>${data.TN.total.confirmed}</td>
+                   <td>${data.TN.total.deceased}</td>
+                   <td>${data.TN.total.recovered}</td>
+                   <td>${data.TN.total.tested}</td>
+                   <td>${data.TN.total.vaccinated}</td>
+                   `
+                   $("#data_TN").html(data_TN)
+
+                   data_TG = `
+                   <td>Telangana</td>
+                   <td>${data.TG.total.confirmed}</td>
+                   <td>${data.TG.total.deceased}</td>
+                   <td>${data.TG.total.recovered}</td>
+                   <td>${data.TG.total.tested}</td>
+                   <td>${data.TG.total.vaccinated}</td>
+                   `
+                   $("#data_TG").html(data_TG)
+
+                   data_TR = `
+                   <td>Tripura</td>
+                   <td>${data.TR.total.confirmed}</td>
+                   <td>${data.TR.total.deceased}</td>
+                   <td>${data.TR.total.recovered}</td>
+                   <td>${data.TR.total.tested}</td>
+                   <td>${data.TR.total.vaccinated}</td>
+                   `
+                   $("#data_TR").html(data_TR)
+
+                   data_UP = `
+                   <td>Uttar Pradesh</td>
+                   <td>${data.UP.total.confirmed}</td>
+                   <td>${data.UP.total.deceased}</td>
+                   <td>${data.UP.total.recovered}</td>
+                   <td>${data.UP.total.tested}</td>
+                   <td>${data.UP.total.vaccinated}</td>
+                   `
+                   $("#data_UP").html(data_UP)
+
+                   data_UT = `
+                   <td>Uttarakhand</td>
+                   <td>${data.UT.total.confirmed}</td>
+                   <td>${data.UT.total.deceased}</td>
+                   <td>${data.UT.total.recovered}</td>
+                   <td>${data.UT.total.tested}</td>
+                   <td>${data.UT.total.vaccinated}</td>
+                   `
+                   $("#data_UT").html(data_UT)
+
+                   data_WB = `
+                   <td>West Bengal</td>
+                   <td>${data.WB.total.confirmed}</td>
+                   <td>${data.WB.total.deceased}</td>
+                   <td>${data.WB.total.recovered}</td>
+                   <td>${data.WB.total.tested}</td>
+                   <td>${data.WB.total.vaccinated}</td>
+                   `
+                   $("#data_WB").html(data_WB)
+                })
+            }
+            function refreshData(){
+                clearData()
+                init()
+            }
+            function clearData(){
+                $("#data").empty()
+            }
+
+    </script>
+</html>
